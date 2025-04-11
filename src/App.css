@@ -1,8 +1,8 @@
 :root {
   --fontSize: 16px;
   --fontFamily: calibri, sans-serif;
-  --backgroundColor: rgb(12, 12, 12);
-  --fontColor: rgb(192, 192, 192);
+  --backgroundColor: rgb(12, 12, 12); /* set by theme provider, this is for no flash */
+  --fontColor: rgb(192, 192, 192); /* set by theme provider, this is for no flash */
 }
 
 html {

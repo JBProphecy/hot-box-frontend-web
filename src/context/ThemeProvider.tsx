@@ -3,7 +3,6 @@
 import { useEffect, useRef, useState } from "react"
 import { ThemeContext } from "./ThemeContext"
 import { themes, type ThemeName } from "@/constants"
-import { themeTransitionDuration, themeTransitionFunction } from "@/constants/transitions"
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -25,23 +24,17 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   }
 
   // Initialize Theme
-  useEffect(() => {
-    root.current.style.setProperty("--transitionDuration", themeTransitionDuration + "ms")
-    root.current.style.setProperty("--transitionFunction", themeTransitionFunction)
-    setThemeValues()
-    setIsInitialized(true)
-  }, [])
+  useEffect(() => { setThemeValues(); setIsInitialized(true) }, [])
 
   // Switch Theme
   useEffect(() => {
     if (!isInitialized) { return }
-    addTransitionClass()
-    setThemeValues()
+    addTransitionClass(); setThemeValues()
     root.current.addEventListener("transitionend", removeTransitionClass)
     return () => { root.current.removeEventListener("transitionend", removeTransitionClass) }
   }, [name])
 
-  // Mouse Event Context
+  // Return Context
   return (
     <ThemeContext.Provider value={{ name, setName }}>
       {children}
