@@ -3,8 +3,15 @@
 import './App.css'
 import "@/styles/elements.css"
 
+import { ThemeProvider } from './context/ThemeProvider'
+import { TestPage } from './pages/TestPage'
+
 export default function App() {
-  return <></>
+  return (
+    <ThemeProvider>
+      <TestPage />
+    </ThemeProvider>
+  )
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

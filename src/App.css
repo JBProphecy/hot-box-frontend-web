@@ -1,11 +1,28 @@
+:root {
+  --fontSize: 16px;
+  --fontFamily: calibri, sans-serif;
+  --backgroundColor: rgb(12, 12, 12);
+  --fontColor: rgb(192, 192, 192);
+}
+
 html {
-  font-size: 16px;
-  font-family: calibri, sans-serif;
+  font-size: var(--fontSize);
+  font-family: var(--fontFamily);
 }
 
 #root {
   position: relative;
+  overflow: hidden;
   width: 100dvw;
   height: 100dvh;
-  background-color: rgb(12, 12, 12);
+  background-color: var(--backgroundColor);
+  color: var(--fontColor);
+}
+
+.themeTransition {
+  --transitionDuration: 420ms;
+  --transitionFunction: ease-out;
+  transition:
+    background-color var(--transitionDuration) var(--transitionFunction),
+    color var(--transitionDuration) var(--transitionFunction);
 }
