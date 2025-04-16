@@ -1,17 +1,16 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 export type TransitionTimingFunction =
-  | 'ease'
-  | 'linear'
-  | 'ease-in'
-  | 'ease-out'
-  | 'ease-in-out'
-  | `cubic-bezier(${number}, ${number}, ${number}, ${number})`
-  | `steps(${number})`
-  | `steps(${number}, start)`
-  | `steps(${number}, end)`
-  | 'initial'
-  | 'inherit';
+| 'ease'
+| 'linear'
+| 'ease-in'
+| 'ease-out'
+| 'ease-in-out'
+| `cubic-bezier(${number}, ${number}, ${number}, ${number})`
+| `steps(${number})`
+| `steps(${number}, start)`
+| `steps(${number}, end)`
+| 'initial'
+| 'inherit';
 
-  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

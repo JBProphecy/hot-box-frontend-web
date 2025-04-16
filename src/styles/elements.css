@@ -1,21 +1,23 @@
-.screen {
-  position: relative;
-  width: 100dvw;
-  height: 100dvh;
-  background-color: rgb(12, 12, 12);
-}
+/**********************************************************************************************************************/
 
-.element {
+.display.default {
   position: relative;
-}
-
-.display {
   width: 100%;
   height: 100%;
 }
 
-.layer {
+.display.linked {
+  position: relative;
+  --displayWidth: var(--containerWidth);
+  --displayHeight: var(--containerHeight);
+  width: var(--displayWidth);
+  height: var(--displayHeight);
+}
+
+.layer.default {
   position: absolute;
   width: 100%;
   height: 100%;
 }
+
+/**********************************************************************************************************************/

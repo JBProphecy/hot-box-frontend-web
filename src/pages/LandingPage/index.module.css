@@ -1,0 +1,40 @@
+.display {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  opacity: 0;
+}
+.visible { opacity: 1; }
+
+.title {
+  display: flex;
+  justify-content: center;
+}
+
+.button {
+  width: max-content;
+  height: max-content;
+  display: flex;
+  opacity: 0.7;
+  transition: opacity var(--transitionDuration) ease-out;
+  border-radius: 2rem;
+}
+
+.hover { cursor: pointer; }
+.hover, :focus { opacity: 1; }
+.active { opacity: 0; }
+
+.button > .text {
+  --transitionDuration: unset;
+  border-radius: inherit;
+  color: var(--fontColor);
+  opacity: 0.7;
+  padding: 1rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-weight: bold;
+  user-select: none;
+  font-size: clamp(1rem, calc(1/12 * var(--displayWidth)), calc(1/15 * var(--displayHeight)));
+  transition: opacity var(--transitionDuration) ease-out;
+}

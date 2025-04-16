@@ -1,16 +1,14 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-import { CSSVariables } from "./CSSVariables"
+import { forwardRef } from "react"
+import type { ElementAttributes } from "@/types"
+import { Div } from "./vanilla"
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-export type HTMLAttributes = {
-  reference?: React.RefObject<HTMLDivElement>
-  children?: React.ReactNode
-  classes?: string[]
-  styles?: CSSVariables
-  tabIndex?: number
-  isFocusable?: boolean
-}
+export const Container = forwardRef<HTMLDivElement, ElementAttributes>((props, ref) => {
+  const { classes = [], ...attributes } = props
+  return <Div ref={ref} classes={["container", ...classes]} {...attributes} />
+})
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

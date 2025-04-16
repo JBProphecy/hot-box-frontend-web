@@ -10,6 +10,13 @@ html {
   font-family: var(--fontFamily);
 }
 
+body[data-input-mode="keyboard"] {
+  cursor: none;
+}
+body[data-input-mode="keyboard"] #root {
+  pointer-events: none;
+}
+
 #root {
   position: relative;
   overflow: hidden;
@@ -19,8 +26,13 @@ html {
   color: var(--fontColor);
 }
 
+#root-container {
+  width: 100%;
+  height: 100%;
+}
+
 .themeTransition {
-  --transitionDuration: 420ms;
+  --transitionDuration: 400ms;
   --transitionFunction: ease-out;
   transition:
     background-color var(--transitionDuration) var(--transitionFunction),

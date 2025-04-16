@@ -17,7 +17,9 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 
   // Functions
   const addTransitionClass = () => { root.current.classList.add("themeTransition") }
-  const removeTransitionClass = () => { root.current.classList.remove("themeTransition") }
+  const handleTransitioned = (event: TransitionEvent) => {
+    if (event.target === root.current) { root.current.classList.remove("themeTransition") }
+  }
   const setThemeValues = () => {
     root.current.style.setProperty("--backgroundColor", themes[name].backgroundColor)
     root.current.style.setProperty("--fontColor", themes[name].fontColor)
@@ -30,8 +32,8 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     if (!isInitialized) { return }
     addTransitionClass(); setThemeValues()
-    root.current.addEventListener("transitionend", removeTransitionClass)
-    return () => { root.current.removeEventListener("transitionend", removeTransitionClass) }
+    root.current.addEventListener("transitionend", handleTransitioned)
+    return () => { root.current.removeEventListener("transitionend", handleTransitioned) }
   }, [name])
 
   // Return Context
